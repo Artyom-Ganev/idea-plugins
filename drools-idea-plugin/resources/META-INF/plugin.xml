@@ -1,0 +1,27 @@
+<idea-plugin version="2">
+    <id>drools-idea-plugin</id>
+    <name>Drools plugin for Intellij IDEA</name>
+    <version>1.0-SNAPSHOT</version>
+    <vendor email="a.a.ganev@gmail.com">Artyom Ganev</vendor>
+
+    <description>
+        <!--[CDATA[]]-->
+    </description>
+
+    <change-notes>
+        <!--[CDATA[]]-->
+    </change-notes>
+
+    <idea-version since-build="163"/>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+</idea-plugin>
