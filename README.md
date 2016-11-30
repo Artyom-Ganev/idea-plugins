@@ -1,2 +1,1 @@
-# idea-plugind
-Intellij IDEA plugins project
+# Intellij IDEA plugins project
