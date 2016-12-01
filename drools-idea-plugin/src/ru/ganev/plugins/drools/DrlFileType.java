@@ -1,6 +1,6 @@
 package ru.ganev.plugins.drools;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.LanguageFileType;
@@ -17,7 +17,9 @@ public class DrlFileType extends LanguageFileType {
 
     public static final DrlFileType DRL_FILE_TYPE = new DrlFileType();
     @NonNls
-    private static final String DEFAULT_EXT = "drl";
+    private static final String DEFAULT_EXTENSION = "drl";
+    @NonNls
+    public static final String DOT_DEFAULT_EXTENSION = "." + DEFAULT_EXTENSION;
     @NonNls
     private static final String DEFAULT_CHARSET = "UTF-8";
 
@@ -45,7 +47,7 @@ public class DrlFileType extends LanguageFileType {
     @NonNls
     @Override
     public String getDefaultExtension() {
-        return DEFAULT_EXT;
+        return DEFAULT_EXTENSION;
     }
 
     @Override
