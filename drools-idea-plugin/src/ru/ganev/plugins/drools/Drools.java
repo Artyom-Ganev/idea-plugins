@@ -10,6 +10,6 @@ public class Drools extends Language {
     public static final Drools INSTANCE = new Drools();
 
     protected Drools() {
-        super(DroolsProperties.FILE_TYPE_NAME);
+        super("Drools");
     }
 }

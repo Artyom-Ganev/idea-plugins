@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.highlighter;
+package ru.ganev.plugins.drools.highlight;
 
 import com.intellij.ide.highlighter.JavaFileHighlighter;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ganev.plugins.drools.DrlTokens;
+import ru.ganev.plugins.drools.DrlTokenTypes;
 
 /**
  *
@@ -21,7 +21,7 @@ public class DrlEditorHighlighter extends LayeredLexerEditorHighlighter {
     public DrlEditorHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
         super(new DrlSyntaxHighlighter(), colors);
         this.vFile = virtualFile;
-        this.registerLayer(DrlTokens.JAVA_STATEMENT, new LayerDescriptor(new JavaFileHighlighter(), ""));
+        this.registerLayer(DrlTokenTypes.JAVA_STATEMENT, new LayerDescriptor(new JavaFileHighlighter(), ""));
     }
 
 }

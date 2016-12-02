@@ -13,11 +13,14 @@
     </change-notes>
 
     <idea-version since-build="163"/>
+    <resource-bundle>resources.messages.DrlBundle</resource-bundle>
 
     <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <fileTypeFactory implementation="ru.ganev.plugins.drools.DrlFileTypeFactory"/>
+        <lang.syntaxHighlighterFactory language="Drools" implementationClass="ru.ganev.plugins.drools.highlight.DrlSyntaxHighlighterFactory"/>
+        <lang.parserDefinition language="Drools" implementationClass="ru.ganev.plugins.drools.parsing.DrlParserDefinition"/>
     </extensions>
 
     <actions>

@@ -7,8 +7,7 @@ import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import ru.ganev.plugins.drools.highlighter.DrlEditorHighlighter;
-import ru.ganev.plugins.drools.icons.DrlIcon;
+import ru.ganev.plugins.drools.highlight.DrlEditorHighlighter;
 
 /**
  *
@@ -17,7 +16,7 @@ public class DrlFileType extends LanguageFileType {
 
     public static final DrlFileType DRL_FILE_TYPE = new DrlFileType();
     @NonNls
-    private static final String DEFAULT_EXTENSION = "drl";
+    public static final String DEFAULT_EXTENSION = "drl";
     @NonNls
     public static final String DOT_DEFAULT_EXTENSION = "." + DEFAULT_EXTENSION;
     @NonNls
@@ -33,14 +32,14 @@ public class DrlFileType extends LanguageFileType {
     @NonNls
     @Override
     public String getName() {
-        return DroolsProperties.FILE_TYPE_NAME;
+        return DrlBundle.message("drools.file.type.name");
     }
 
     @NonNls
     @NotNull
     @Override
     public String getDescription() {
-        return DroolsProperties.FILE_TYPE_DESCRIPTION;
+        return DrlBundle.message("drools.file.type.description");
     }
 
     @NotNull

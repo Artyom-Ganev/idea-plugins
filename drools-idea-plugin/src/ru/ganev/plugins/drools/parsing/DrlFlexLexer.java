@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.lexer;
+package ru.ganev.plugins.drools.parsing;
 
 import java.io.IOException;
 
@@ -12,7 +12,6 @@ public class DrlFlexLexer implements FlexLexer {
 
     @Override
     public void yybegin(int i) {
-
     }
 
     @Override
@@ -37,6 +36,5 @@ public class DrlFlexLexer implements FlexLexer {
 
     @Override
     public void reset(CharSequence charSequence, int i, int i1, int i2) {
-
     }
 }

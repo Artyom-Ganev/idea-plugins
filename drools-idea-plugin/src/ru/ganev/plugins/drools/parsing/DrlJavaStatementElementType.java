@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.lexer;
+package ru.ganev.plugins.drools.parsing;
 
 import com.intellij.psi.tree.ILazyParseableElementType;
 import ru.ganev.plugins.drools.Drools;
