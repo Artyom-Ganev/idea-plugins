@@ -1,11 +1,11 @@
-package ru.ganev.plugins.drools;
+package ru.ganev.intellij.plugins.drools;
 
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import ru.ganev.plugins.drools.parsing.DrlElementType;
-import ru.ganev.plugins.drools.parsing.DrlJavaStatementElementType;
+import ru.ganev.intellij.plugins.drools.psi.DrlElementType;
+import ru.ganev.intellij.plugins.drools.psi.DrlJavaStatementElementType;
 
 /**
  *

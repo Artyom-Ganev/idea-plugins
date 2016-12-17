@@ -1,0 +1,20 @@
+{
+  parserClass="ru.ganev.intellij.plugins.drools.parser.DrlParser"
+  parserUtilClass="ru.ganev.intellij.plugins.drools.psi.impl.DrlParserUtil"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Simple"
+  psiImplClassSuffix="Impl"
+  psiPackage="ru.ganev.intellij.plugins.drools.psi"
+  psiImplPackage="ru.ganev.intellij.plugins.drools.psi.impl"
+
+  elementTypeHolderClass="ru.ganev.intellij.plugins.drools.psi.DrlTypes"
+  elementTypeClass="ru.ganev.intellij.plugins.drools.psi.DrlElementType"
+  tokenTypeClass="ru.ganev.intellij.plugins.drools.psi.DrlTokenType"
+
+  //psiImplUtilClass="ru.ganev.intellij.plugins.drools.psi.impl.DrlPsiImplUtil"
+
+}
+
+drlFile ::= (property|COMMENT)*

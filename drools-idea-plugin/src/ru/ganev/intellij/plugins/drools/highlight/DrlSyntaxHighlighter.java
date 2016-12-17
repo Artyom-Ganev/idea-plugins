@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.highlight;
+package ru.ganev.intellij.plugins.drools.highlight;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NotNull;
-import ru.ganev.plugins.drools.parsing.DrlLexer;
+import ru.ganev.intellij.plugins.drools.parser.DrlLexer;
 
 /**
  *

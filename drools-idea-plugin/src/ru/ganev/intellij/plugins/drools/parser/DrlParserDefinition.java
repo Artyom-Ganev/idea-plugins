@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.parsing;
+package ru.ganev.intellij.plugins.drools.parser;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -11,8 +11,8 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import org.jetbrains.annotations.NotNull;
-import ru.ganev.plugins.drools.DrlFile;
-import ru.ganev.plugins.drools.DrlTokenTypes;
+import ru.ganev.intellij.plugins.drools.DrlFile;
+import ru.ganev.intellij.plugins.drools.DrlTokenTypes;
 
 /**
  *

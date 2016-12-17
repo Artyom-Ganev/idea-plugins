@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.highlight;
+package ru.ganev.intellij.plugins.drools.highlight;
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;

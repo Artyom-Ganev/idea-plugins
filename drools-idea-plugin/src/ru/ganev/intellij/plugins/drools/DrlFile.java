@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools;
+package ru.ganev.intellij.plugins.drools;
 
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;

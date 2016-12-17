@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools;
+package ru.ganev.intellij.plugins.drools;
 
 import javax.swing.*;
 
@@ -9,7 +9,7 @@ import com.intellij.openapi.util.IconLoader;
  */
 public class DrlIcon {
 
-    private static final String ICON_PATH = "/resources/icons/drools-file.png";
+    private static final String ICON_PATH = "/icons/drools-file.png";
 
     public static final Icon ICON = IconLoader.getIcon(ICON_PATH, DrlIcon.class);
 

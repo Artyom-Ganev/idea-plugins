@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools;
+package ru.ganev.intellij.plugins.drools;
 
 import javax.swing.Icon;
 
@@ -7,14 +7,14 @@ import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import ru.ganev.plugins.drools.highlight.DrlEditorHighlighter;
+import ru.ganev.intellij.plugins.drools.highlight.DrlEditorHighlighter;
 
 /**
  *
  */
 public class DrlFileType extends LanguageFileType {
 
-    public static final DrlFileType DRL_FILE_TYPE = new DrlFileType();
+    public static final DrlFileType INSTANCE = new DrlFileType();
     @NonNls
     public static final String DEFAULT_EXTENSION = "drl";
     @NonNls

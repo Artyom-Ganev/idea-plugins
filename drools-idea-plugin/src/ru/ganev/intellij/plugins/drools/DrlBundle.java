@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools;
+package ru.ganev.intellij.plugins.drools;
 
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;

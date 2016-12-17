@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.highlight;
+package ru.ganev.intellij.plugins.drools.highlight;
 
 import com.intellij.ide.highlighter.JavaFileHighlighter;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ganev.plugins.drools.DrlTokenTypes;
+import ru.ganev.intellij.plugins.drools.DrlTokenTypes;
 
 /**
  *

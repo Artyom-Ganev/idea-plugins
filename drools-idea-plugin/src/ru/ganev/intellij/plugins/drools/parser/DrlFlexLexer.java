@@ -1,4 +1,4 @@
-package ru.ganev.plugins.drools.parsing;
+package ru.ganev.intellij.plugins.drools.parser;
 
 import java.io.IOException;
 
