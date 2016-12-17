@@ -9,8 +9,8 @@ import com.intellij.openapi.util.IconLoader;
  */
 public class DrlIcon {
 
-    private static final String ICON_PATH = "/icons/drools-file.png";
+    private static final String ICON_PATH = "/icons/drools.png";
 
-    public static final Icon ICON = IconLoader.getIcon(ICON_PATH, DrlIcon.class);
+    public static final Icon DRL_ICON = IconLoader.getIcon(ICON_PATH);
 
 }

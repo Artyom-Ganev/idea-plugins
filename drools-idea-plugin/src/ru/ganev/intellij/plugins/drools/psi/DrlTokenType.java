@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import ru.ganev.intellij.plugins.drools.Drools;
 
 /**
- *
+ * Drools file token type
  */
 public class DrlTokenType extends IElementType {
 

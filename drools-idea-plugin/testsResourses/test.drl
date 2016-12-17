@@ -1,0 +1,13 @@
+package ru.ganev.intellij.plugins.drools;
+
+import java.util.*;
+
+global List list;
+
+declare Test
+    str: String;
+end
+
+function void testFunc() {
+   //
+}

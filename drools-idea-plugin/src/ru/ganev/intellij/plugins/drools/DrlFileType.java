@@ -1,61 +1,48 @@
 package ru.ganev.intellij.plugins.drools;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
-import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import ru.ganev.intellij.plugins.drools.highlight.DrlEditorHighlighter;
 
 /**
- *
+ * Kind of file types capable to provide {@link Drools} language.
  */
 public class DrlFileType extends LanguageFileType {
 
     public static final DrlFileType INSTANCE = new DrlFileType();
-    @NonNls
-    public static final String DEFAULT_EXTENSION = "drl";
-    @NonNls
-    public static final String DOT_DEFAULT_EXTENSION = "." + DEFAULT_EXTENSION;
-    @NonNls
-    private static final String DEFAULT_CHARSET = "UTF-8";
 
     private DrlFileType() {
         super(Drools.INSTANCE);
-        FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this,
-                (project, fileType, virtualFile, colors) -> new DrlEditorHighlighter(project, virtualFile, colors));
     }
 
     @NotNull
-    @NonNls
     @Override
     public String getName() {
-        return DrlBundle.message("drools.file.type.name");
+        return Drools.NAME;
     }
 
-    @NonNls
     @NotNull
     @Override
     public String getDescription() {
-        return DrlBundle.message("drools.file.type.description");
+        return "Drools file";
     }
 
     @NotNull
-    @NonNls
     @Override
     public String getDefaultExtension() {
-        return DEFAULT_EXTENSION;
+        return "drl";
     }
 
     @Override
     public Icon getIcon() {
-        return DrlIcon.ICON;
+        return DrlIcon.DRL_ICON;
     }
 
     @Override
-    public String getCharset(@NotNull VirtualFile file, @NotNull byte[] content) {
-        return DEFAULT_CHARSET;
+    public String getCharset(@NotNull VirtualFile file, @NotNull byte[] bytes) {
+        return CharsetToolkit.UTF8;
     }
 }

@@ -1,6 +1,6 @@
 <idea-plugin version="2">
     <id>drools-idea-plugin</id>
-    <name>Drools plugin for Intellij IDEA</name>
+    <name>Drools language plugin for Intellij IDEA</name>
     <version>1.0.0</version>
     <vendor email="a.a.ganev@gmail.com">Artyom Ganev</vendor>
 
@@ -13,14 +13,11 @@
     </change-notes>
 
     <idea-version since-build="163"/>
-    <resource-bundle>resources.messages.DrlBundle</resource-bundle>
 
     <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="ru.ganev.intellij.plugins.drools.DrlFileTypeFactory"/>
-        <lang.syntaxHighlighterFactory language="Drools" implementationClass="ru.ganev.intellij.plugins.drools.highlight.DrlSyntaxHighlighterFactory"/>
-        <lang.parserDefinition language="Drools" implementationClass="ru.ganev.intellij.plugins.drools.parser.DrlParserDefinition"/>
     </extensions>
 
     <actions>
