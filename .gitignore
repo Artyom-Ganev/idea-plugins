@@ -1,6 +1,10 @@
+# Java
 target
 *.jar
 
 # Intellij IDEA project files
 .idea
 *.iml
+
+# JFlex skeleton
+*.skeleton

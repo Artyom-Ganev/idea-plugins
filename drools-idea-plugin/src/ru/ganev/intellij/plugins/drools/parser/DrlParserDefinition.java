@@ -12,7 +12,6 @@ import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import org.jetbrains.annotations.NotNull;
 import ru.ganev.intellij.plugins.drools.DrlFile;
-import ru.ganev.intellij.plugins.drools.DrlTokenTypes;
 
 /**
  *
@@ -32,7 +31,7 @@ public class DrlParserDefinition implements ParserDefinition {
 
     @Override
     public IFileElementType getFileNodeType() {
-        return DrlTokenTypes.DROOLS_FILE;
+        return null;
     }
 
     @NotNull

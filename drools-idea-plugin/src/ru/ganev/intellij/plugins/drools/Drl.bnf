@@ -15,6 +15,245 @@
 
   //psiImplUtilClass="ru.ganev.intellij.plugins.drools.psi.impl.DrlPsiImplUtil"
 
+  tokens = [
+  //Java reserved words and literals
+  ASSERT="assert"
+  BREAK="break"
+  CASE="case"
+  CATCH="catch"
+  CLASS="class"
+  CONST="const"
+  CONTINUE="continue"
+  DEFAULT="default"
+  DO="do"
+  ELSE="else"
+  ENUM="enum"
+  EXTENDS="extends"
+  FALSE="false"
+  FINAL="final"
+  FINALLY="finally"
+  FOR="for"
+  IF="if"
+  IN="in"
+  IS="is"
+  NEW="new"
+  NULL="null"
+  RETHROW="rethrow"
+  RETURN="return"
+  SUPER="super"
+  SWITCH="switch"
+  THIS="this"
+  THROW="throw"
+  TRUE="true"
+  TRY="try"
+  VAR="var"
+  WHILE="while"
+  WITH="with"
+  VOID="void"
+  ABSTRACT="abstract"
+  AS="as"
+  DEFERRED="deferred"
+  EXPORT="export"
+  EXTERNAL="external"
+  FACTORY="factory"
+  GET="get"
+  IMPLEMENTS="implements"
+  IMPORT="import"
+  LIBRARY="library"
+  OPERATOR="operator"
+  PART="part"
+  SET="set"
+  STATIC="static"
+  TYPEDEF="typedef"
+  ON="on"
+  OF="of"
+  NATIVE="native"
+  SHOW="show"
+  HIDE="hide"
+  SYNC="sync"
+  ASYNC="async"
+  AWAIT="await"
+  YIELD="yield"
+  DOT="."
+  LBRACE="{"
+  RBRACE="}"
+  LBRACKET="["
+  RBRACKET="]"
+  LPAREN="("
+  RPAREN=")"
+  SEMICOLON=";"
+  MINUS="-"
+  PLUS="+"
+  NOT="!"
+  EQ="=="
+  AND="&&"
+  OR="||"
+  NOT_EQ="!="
+
+  //Drools reserved words and literals
+  GLOBAL = "global"
+  DECLARE = "declare"
+  RULE="rule"
+  WHEN="when"
+  THEN="then"
+  END="end"
+  SALIENCE="salience"
+  ]
 }
 
-drlFile ::= (property|COMMENT)*
+//primitives
+modifier ::= "public" | "private" | "protected" | "static" | "final" | "native" | "synchronized" | "abstract" | "threadsafe" | "transient" 
+
+identifier ::= "a..z,$,_" { "a..z,$,_,0..9,unicode character over 00C0" }
+
+integer_literal ::= (("1..9" {"0..9" }) 
+      | {"0..7"} 
+      | ("0" "x" "0..9a..f" {"0..9a..f"})) ["l"]
+
+decimal_digits ::= "0..9" { "0..9" }
+
+exponent_part ::= "e" [ "+" | "-" ] decimal_digits
+
+float_type_suffix ::= "f" | "d" 
+
+float_literal ::= (decimal_digits "." [decimal_digits] [exponent_part] [float_type_suffix])
+      | ("." decimal_digits [exponent_part] [float_type_suffix])
+      | (decimal_digits [exponent_part] [float_type_suffix])
+
+character ::=  "based on the unicode character set"
+
+string ::= "''" {character} "''"
+
+package_name ::= identifier | ( package_name "." identifier )
+
+class_name ::= identifier | ( package_name "." identifier )
+
+type_specifier ::= "boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | class_name
+
+type ::= type_specifier { "[" "]" }
+
+parameter ::= type identifier { "[" "]" } 
+
+parameter_list ::= parameter { "," parameter } 
+
+variable_initializer ::= expression | ("{" [variable_initializer {"," variable_initializer} [","]] "}") 
+
+variable_declarator ::= identifier {"[" "]"} ["=" variable_initializer] 
+
+variable_declaration ::= { modifier } type variable_declarator { "," variable_declarator } ";"
+
+numeric_expression ::= (( "-" | "++" | "--" ) expression)
+    | (expression ( "++" | "--"))
+    | (expression ("+" | "+=" | "-" | "-=" | "*" | "*=" | "/" | "/=" | "%" | "%=") expression)
+
+testing_expression ::= (expression (">" | "<" | ">=" | "<=" | "==" | "!=") expression) 
+
+logical_expression ::= ("!" expression)
+    | (expression ("ampersand"
+        | "ampersand="
+        | "|"
+        | "|="
+        | "^"
+        | "^="
+        | ("ampersand" "ampersand")
+        | "||="
+        | "%"
+        | "%=") expression)
+    | (expression "?" expression ":" expression)
+    | "true"
+    | "false"
+
+string_expression ::= (expression ("+" | "+=") expression)
+
+bit_expression ::= ("~" expression) | (expression (">>=" | "<<" | ">>" | ">>>") expression)
+
+casting_expression ::= "(" type ")" expression 
+
+creating_expression ::= "new" ((classe_name "(" [arglist] ")")
+    | (type_specifier ["[" expression "]"] {"[" "]"})
+    | ("(" expression ")"))
+
+literal_expression ::= integer_literal 
+    | float_literal 
+    | string 
+    | character 
+
+arglist ::= expression { "," expression } 
+
+expression ::= numeric_expression 
+    | testing_expression 
+    | logical_expression 
+    | string_expression 
+    | bit_expression 
+    | casting_expression 
+    | creating_expression 
+    | literal_expression 
+    | "null" 
+    | "super" 
+    | "this" 
+    | identifier 
+    | ("(" expression ")") 
+    | (expression (("(" [arglist] ")") | ("[" expression "]") | ("." expression) | ("," expression ) | ("instanceof" class_name)))
+
+if_statement ::= "if" "(" expression ")" statement ["else" statement] 
+
+do_statement ::= "do" statement "while" "(" expression ")" ";" 
+
+while_statement ::= "while" "(" expression ")" statement 
+
+for_statement ::= "for" "(" (variable_declaration | (expression ";") | ";") [expression] ";" [expression] ";" ")" statement 
+
+try_statement ::= "try" statement {"catch" "(" parameter ")" statement} ["finally" statement] 
+
+switch_statement ::= "switch" "(" expression ")" "{" {( "case" expression ":") | ("default" ":") | statement} "}"
+
+statement ::= variable_declaration 
+    | ( expression ";" ) 
+    | ( statement_block ) 
+    | ( if_statement ) 
+    | ( do_statement ) 
+    | ( while_statement ) 
+    | ( for_statement ) 
+    | ( try_statement ) 
+    | ( switch_statement ) 
+    | ( "synchronized" "(" expression ")" statement ) 
+    | ( "return" [ expression ] ";" ) 
+    | ( "throw" expression ";" ) 
+    | ( identifier ":" statement ) 
+    | ( "break" [ identifier ] ";" ) 
+    | ( "continue" [ identifier ] ";" ) 
+    | ( ";" ) 
+
+statement_block ::= "{" { statement } "}"
+
+//drl file elements
+package_statement ::= "package" package_name ";" 
+
+import_statement ::= "import" ( ( package_name "." "*" ";" ) | class_name ) ";"
+
+global_staement ::= "global" class_name " " identifier ";"
+
+function_declaration ::= "function" ("void" | type) identifier "(" [ parameter_list ] ")"
+                         statement_block 
+
+declare_statement ::= "declare" identifier
+		      {identifier ":" type ";"}
+                      end
+
+salience_statement ::= "salience" integer_literal
+
+rule_statement ::= "rule"
+                   {salience_statement}
+                   "when"
+                   "then"
+                   "end"
+
+//drl file structure
+drools_unit ::=
+      [ package_statement ] 
+      { import_statement } 
+      { global_staement } 
+      { declate_staement }
+      { function_statement }
+      { rule_statement }
+
