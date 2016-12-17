@@ -13,6 +13,8 @@ import org.jetbrains.annotations.NotNull;
 public class DrlFileType extends LanguageFileType {
 
     public static final DrlFileType INSTANCE = new DrlFileType();
+    public static final String FILE_DESCRIPTION = "Drools file";
+    private static final String EXTENSION = "drl";
 
     private DrlFileType() {
         super(Drools.INSTANCE);
@@ -27,13 +29,13 @@ public class DrlFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDescription() {
-        return "Drools file";
+        return FILE_DESCRIPTION;
     }
 
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "drl";
+        return EXTENSION;
     }
 
     @Override

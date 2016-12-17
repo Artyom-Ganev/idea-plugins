@@ -11,6 +11,10 @@ public class DrlVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitComment(@NotNull DrlComment o) {
+    visitPsiElement(o);
+  }
+
   public void visitDroolsFile(@NotNull DrlDroolsFile o) {
     visitPsiElement(o);
   }

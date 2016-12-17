@@ -26,6 +26,9 @@ public class DrlParser implements PsiParser, LightPsiParser {
     if (t == CLASS_NAME) {
       r = class_name(b, 0);
     }
+    else if (t == COMMENT) {
+      r = comment(b, 0);
+    }
     else if (t == DROOLS_FILE) {
       r = droolsFile(b, 0);
     }
@@ -102,6 +105,17 @@ public class DrlParser implements PsiParser, LightPsiParser {
     r = r && consumeToken(b, ".");
     r = r && simple_identifier(b, l + 1);
     exit_section_(b, m, null, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // "//"
+  public static boolean comment(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "comment")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, COMMENT, "<comment>");
+    r = consumeToken(b, "//");
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 

@@ -9,6 +9,7 @@ import ru.ganev.intellij.plugins.drools.psi.impl.*;
 public interface DrlTypes {
 
   IElementType CLASS_NAME = new DrlElementType("CLASS_NAME");
+  IElementType COMMENT = new DrlElementType("COMMENT");
   IElementType DROOLS_FILE = new DrlElementType("DROOLS_FILE");
   IElementType FUNCTION_DECLARATION = new DrlElementType("FUNCTION_DECLARATION");
   IElementType GLOBAL_STATEMENT = new DrlElementType("GLOBAL_STATEMENT");
@@ -31,6 +32,9 @@ public interface DrlTypes {
       IElementType type = node.getElementType();
        if (type == CLASS_NAME) {
         return new DrlClassNameImpl(node);
+      }
+      else if (type == COMMENT) {
+        return new DrlCommentImpl(node);
       }
       else if (type == DROOLS_FILE) {
         return new DrlDroolsFileImpl(node);
