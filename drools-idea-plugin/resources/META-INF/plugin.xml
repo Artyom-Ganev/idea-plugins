@@ -19,6 +19,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="ru.ganev.intellij.plugins.drools.DrlFileTypeFactory"/>
         <lang.parserDefinition language="Drools" implementationClass="ru.ganev.intellij.plugins.drools.DrlParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Drools" implementationClass="ru.ganev.intellij.plugins.drools.highlighter.DrlSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="ru.ganev.intellij.plugins.drools.highlighter.DrlColorSettingsPage"/>
     </extensions>
 
     <actions>
